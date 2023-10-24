@@ -1,11 +1,12 @@
-
+import java.util.Arrays;
 
 public class ArrayExamples {
 
   // Changes the input array to be in reversed order
   static void reverseInPlace(int[] arr) {
+    int[] original = arr.clone();
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
+      arr[i] = original[arr.length - i - 1];
     }
   }
 
@@ -14,9 +15,11 @@ public class ArrayExamples {
   static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = newArray[arr.length - i - 1];
+      System.out.println("changing " + arr[i] + " to " + newArray[arr.length - i - 1]);
+      newArray[i] = arr[arr.length - i - 1];
     }
-    return arr;
+    System.out.println(Arrays.toString(newArray));
+    return newArray;
   }
 
   // Averages the numbers in the array (takes the mean), but leaves out the
